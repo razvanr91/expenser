@@ -1,12 +1,13 @@
 import './ExpenseItem.css';
 
-export default function ExpenseItem() {
+export default function ExpenseItem(props) {
+
     return (
         <div className="expense-item">
-            <div>November 26th 2021</div>
+            <div>{props.date.toUTCString()}</div>
             <div className="expense-item__description">
-                <h2>This is an expense item!</h2>
-                <div className="expense-item__price">£65</div>
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">£{props.amount}</div>
             </div>
         </div>
     );
