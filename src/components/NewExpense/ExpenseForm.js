@@ -59,7 +59,8 @@ export default function ExpenseForm(props) {
                             </Col>
                         </Row>
 
-                        <Form.Group className="my-2">
+                        <Form.Group className="my-2 d-flex justify-content-end">
+                            <Button className="me-2" type="button" variant="danger" onClick={props.onCancel} >Cancel</Button>
                             <Button type="submit" variant="success" >Add Expense</Button>
                         </Form.Group>
                     </Form>

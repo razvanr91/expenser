@@ -1,7 +1,10 @@
-import React from "react";
+import { Button, Container } from 'react-bootstrap'
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
+import './ExpenseForm.css'
 
 export default function NewExpense(props) {
+    const [isCreating, setIsCreating] = useState(false);
 
     function newExpenseHandler(newData) {
         let newExpenseData = {
@@ -9,9 +12,21 @@ export default function NewExpense(props) {
             ...newData
         };
         props.onExpenseCreated(newExpenseData);
+        setIsCreating(false);
     };
 
+    function createExpenseHandler() {
+        setIsCreating(true);
+    }
+
+    function cancelCreateExpenseHandler() {
+        setIsCreating(false);
+    }
+
     return (
-        <ExpenseForm onFormSubmit={newExpenseHandler} />
+        <Container className="d-flex justify-content-center">
+            {!isCreating && <Button onClick={createExpenseHandler} variant="success">Add expense</Button>}
+            {isCreating && <ExpenseForm onFormSubmit={newExpenseHandler} onCancel={cancelCreateExpenseHandler} />}
+        </Container>
     );
 }
