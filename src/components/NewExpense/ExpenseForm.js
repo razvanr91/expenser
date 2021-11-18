@@ -53,7 +53,7 @@ export default function ExpenseForm(props) {
                             </Col>
                             <Col md>
                                 <FloatingLabel controlId="date-input" label="When ?" className="my-2" >
-                                    <Form.Control aria-label="Date" type="datetime-local" value={newDate} onChange={dateChangeHandler} />
+                                    <Form.Control aria-label="Date" type="date" value={newDate} onChange={dateChangeHandler} />
                                 </FloatingLabel>
 
                             </Col>
