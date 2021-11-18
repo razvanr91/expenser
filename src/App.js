@@ -28,10 +28,15 @@ function App() {
       amount: 1500,
       date: new Date(2021, 10, 31)
     }
-  ]
+  ];
+
+  function addNewExpenseHandler(expense) {
+    expenses.push(expense);
+  }
+
   return (
     <Container className="mt-5">
-      <NewExpense />
+      <NewExpense onExpenseCreated={addNewExpenseHandler} />
       <Expenses expenses={expenses} />
     </Container>
   );
