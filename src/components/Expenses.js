@@ -6,7 +6,7 @@ export default function Expenses(props) {
         <div className="expenses">
             {props.expenses.map(expense => {
                 return (
-                    <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date} />
+                    <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} />
                 );
             })}
         </div>
